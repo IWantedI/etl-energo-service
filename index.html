@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>ЭТЛ Энерго‑Сервис — Электролаборатория 6/10/20 кВ, Москва</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ЭТЛ Энерго‑Сервис — электролаборатория 6/10/20 кВ в Москве и МО. Испытания кабельных линий, КТП, ТП, РП, прожиг, техотчёт под Россети и МОЭСК.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #151f3a 0, #0b1020 45%, #070a14 100%);
+      color: #f9fafb;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(148,163,184,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(10,15,30,0.96), rgba(10,15,30,0.9));
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      border-radius: 4px;
+      box-shadow: 0 0 14px rgba(59,130,246,0.5);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .logo-text span {
+      color: #60a5fa;
+    }
+
+    nav a {
+      font-size: 14px;
+      margin-left: 18px;
+      opacity: 0.85;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(37,99,235,0.65);
+      opacity: 0.96;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.8);
+      background: rgba(15,23,42,0.6);
+      color: #e5e7eb;
+      font-size: 14px;
+      cursor: pointer;
+      transition: border 0.15s ease, background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover {
+      border-color: #e5e7eb;
+      background: rgba(15,23,42,0.95);
+    }
+
+    /* hero */
+
+    .hero {
+      padding: 56px 0 40px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero-title span {
+      color: #60a5fa;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #cbd5f5;
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .hero-card {
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at top, rgba(96,165,250,0.3), transparent 55%),
+        radial-gradient(circle at bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.98));
+      border: 1px solid rgba(148,163,184,0.55);
+      padding: 20px;
+      font-size: 13px;
+      color: #e5e7eb;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(15,23,42,0.9);
+    }
+
+    .hero-logo-big {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 22px rgba(59,130,246,0.7);
+    }
+
+    .hero-card h3 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(147,197,253,0.7);
+      background: rgba(15,23,42,0.9);
+      color: #dbeafe;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(59,130,246,0.8);
+      color: #bfdbfe;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-metric {
+      font-size: 13px;
+      margin-top: 8px;
+      color: #cbd5f5;
+    }
+
+    /* sections */
+
+    section {
+      padding: 32px 0;
+      border-top: 1px solid rgba(30,64,175,0.7);
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: #cbd5f5;
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98));
+      border: 1px solid rgba(55,65,81,0.9);
+      padding: 16px 16px 14px;
+      font-size: 13px;
+      box-shadow: 0 16px 30px rgba(15,23,42,0.7);
+    }
+
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #cbd5f5;
+      margin-bottom: 8px;
+    }
+
+    .card ul {
+      padding-left: 16px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .card ul li {
+      margin-bottom: 4px;
+    }
+
+    /* price table */
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(55,65,81,0.9);
+    }
+
+    .price-table th {
+      text-align: left;
+      color: #9ca3af;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .price-table td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .price-table tbody tr:hover {
+      background: rgba(30,64,175,0.3);
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    /* contacts */
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .contact-block {
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    .contact-block p {
+      margin-bottom: 6px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 3px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(30,64,175,0.8);
+      padding: 16px 0 24px;
+      font-size: 12px;
+      color: #9ca3af;
+      text-align: center;
+      margin-top: 10px;
+      background: rgba(8,12,26,0.9);
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .contacts-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      nav {
+        display: none;
+      }
+
+      header {
+        position: static;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo-wrap">
+      <img src="logo-etl-energo-service.jpg" alt="ЭТЛ Энерго‑Сервис" class="logo-img">
+      <div class="logo-text">
+        ЭТЛ <span>Энерго‑Сервис</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#prices">Цены</a>
+      <a href="#benefits">Преимущества</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#contacts" class="btn-outline">Связаться</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-kicker">Электролаборатория 6/10/20 кВ · Москва и МО</div>
+        <h1 class="hero-title">
+          ЭТЛ <span>Энерго‑Сервис</span> — высоковольтные испытания под ключ
+        </h1>
+        <p class="hero-subtitle">
+          Электролаборатория 6/10/20 кВ. Испытания кабельных линий, КТП, ТП, РП, прожиг,
+          полный пакет документов по ПУЭ для сетевых и надзорных организаций.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:+7XXXXXXXXXX" class="btn-primary">Позвонить сейчас</a>
+          <a href="https://t.me/etl_energo_service" class="btn-outline">Написать в Telegram</a>
+        </div>
+        <p class="hero-note">
+          Работаем по Москве и области. Возможен срочный выезд.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <img src="logo-etl-energo-service.jpg" alt="ЭТЛ Энерго‑Сервис" class="hero-logo-big">
+        <span class="tag">ЭТЛ Энерго‑Сервис</span>
+        <h3>Высоковольтные испытания 6/10/20 кВ</h3>
+        <div class="hero-badges">
+          <span class="badge">КТП, ТП, РП</span>
+          <span class="badge">Кабельные линии</span>
+          <span class="badge">Техотчёт под Россети</span>
+          <span class="badge">Прожиг кабеля</span>
+        </div>
+        <p>
+          Аттестованный персонал, полноценная ЭТЛ 6/10/20 кВ, официальный комплект протоколов
+          и техотчёт. Подключаемся на этапе ввода, ремонта или аварии.
+        </p>
+        <p class="hero-metric">
+          Типовые объекты: склады, логистические комплексы, промпредприятия, ТЦ, ЖК и коммерческая недвижимость.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Основные услуги</h2>
+      <p class="section-subtitle">
+        Закрываем полный цикл высоковольтных испытаний: от кабельных линий и КТП до техотчёта под требования сетевых компаний.
+      </p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Испытания кабельных линий 6–20 кВ</h3>
+          <p>Полный комплекс ВН‑испытаний кабельных линий перед вводом или после ремонта.</p>
+          <ul>
+            <li>испытания повышенным напряжением;</li>
+            <li>выявление дефектов изоляции;</li>
+            <li>протоколы по ПУЭ.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Испытания КТП / ТП / РП</h3>
+          <p>Проверка и испытания трансформаторных подстанций и распределительных устройств.</p>
+          <ul>
+            <li>КТП, ТП, РП 6/10/20 кВ;</li>
+            <li>испытание оборудования;</li>
+            <li>отчётная документация.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Прожиг кабельных линий</h3>
+          <p>Прожиг повреждённых кабельных линий с дальнейшей локализацией места повреждения.</p>
+          <ul>
+            <li>аварийные ситуации;</li>
+            <li>подготовка к ремонту;</li>
+            <li>сокращение простоев объекта.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Техотчёт и протоколы</h3>
+          <p>Официальная документация для сетевых и надзорных организаций.</p>
+          <ul>
+            <li>протоколы испытаний;</li>
+            <li>техотчёт по результатам;</li>
+            <li>соответствие ПУЭ и требованиям сетей.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section id="prices">
+    <div class="container">
+      <h2 class="section-title">Ориентировочные цены</h2>
+      <p class="section-subtitle">
+        Каждая задача считается индивидуально. Ниже — типовые диапазоны по работам для объектов в Москве и области.
+      </p>
+
+      <div class="card">
+        <h3>Прайс по основным видам работ</h3>
+        <table class="price-table">
+          <thead>
+          <tr>
+            <th>Работа</th>
+            <th>Цена, от</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Испытание кабельной линии 6–20 кВ</td>
+            <td> от 30 000 ₽</td>
+          </tr>
+          <tr>
+            <td>Комплекс испытаний КТП / ТП</td>
+            <td> от 30 000 ₽</td>
+          </tr>
+          <tr>
+            <td>Испытание оборудования РП</td>
+            <td> от 30 000 ₽</td>
+          </tr>
+          <tr>
+            <td>ВН‑испытания повышенным напряжением</td>
+            <td> от 30 000 ₽</td>
+          </tr>
+          <tr>
+            <td>Прожиг кабельных линий</td>
+            <td> от 30 000 ₽</td>
+          </tr>
+          <tr>
+            <td>Полный техотчёт (ПУЭ)</td>
+            <td> от 30 000 ₽</td>
+          </tr>
+          </tbody>
+        </table>
+        <p class="price-note">
+          Итоговая стоимость зависит от объёма работ, схемы объекта и требований сетевой компании.
+          Точный расчёт даём после ТЗ или предоставления схем.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="container">
+      <h2 class="section-title">Почему с «ЭТЛ Энерго‑Сервис» удобно работать</h2>
+      <p class="section-subtitle">
+        Наша задача — не просто «сделать измерения», а довести объект до результата, который без вопросов примут сети и надзор.
+      </p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Аттестация и опыт</h3>
+          <p>Работы выполняет аттестованный персонал с группой IV–V и опытом высоковольтных испытаний.</p>
+        </div>
+        <div class="card">
+          <h3>Профессиональное оборудование</h3>
+          <p>Полноценная ЭТЛ 6/10/20 кВ для всех необходимых видов ВН‑испытаний.</p>
+        </div>
+        <div class="card">
+          <h3>Документы «как надо»</h3>
+          <p>Протоколы и техотчёт готовы в соответствии с ПУЭ и требованиями сетевых компаний.</p>
+        </div>
+        <div class="card">
+          <h3>Сроки и выезд</h3>
+          <p>Москва и МО, возможен срочный выезд при горящих сроках и аварийных ситуациях.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts">
+    <div class="container">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-subtitle">
+        Опишите объект (тип, мощность, схема, адрес) — дадим ориентировочный расчёт и предложим ближайшую дату выезда.
+      </p>
+
+      <div class="contacts-grid">
+        <div class="contact-block">
+          <div class="contact-label">Телефон</div>
+          <p><a href="tel:+7 915 100-30-90">+7&nbsp;915&nbsp;100‑30‑90 Алексей</a></p>
+	  <p><a href="tel:+7 965 403-72-64">+7&nbsp;965&nbsp;403‑72‑64 Евгений</a></p>
+
+          <div class="contact-label" style="margin-top:10px;">Telegram</div>
+          <p><a href="https://t.me/etl_energo_service">ЭТЛ Энерго‑Сервис</a></p>
+
+          <div class="contact-label" style="margin-top:10px;">E‑mail</div>
+          <p><a href="mailto:info@etl-energoservice.ru">info@etl-energoservice.ru</a></p>
+
+          <div class="contact-label" style="margin-top:10px;">Регион работы</div>
+          <p>Москва и Московская область</p>
+        </div>
+
+        <div class="card">
+          <h3>Быстрый запрос</h3>
+          <p style="color:#cbd5f5; margin-bottom:10px;">
+            В письме или сообщении укажите:
+          </p>
+          <ul>
+            <li>тип объекта (склад, ТЦ, промка, ЖК и т.п.);</li>
+            <li>что требуется испытать (КТП, кабельные линии, РП);</li>
+            <li>адрес / район и желаемые сроки;</li>
+            <li>контактное лицо и телефон.</li>
+          </ul>
+          <p class="price-note" style="margin-top:10px;">
+            При срочных ситуациях лучше сразу звонить.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> ЭТЛ Энерго‑Сервис. Электролаборатория 6/10/20 кВ, Москва и МО.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
